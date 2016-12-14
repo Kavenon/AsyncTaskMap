@@ -1,5 +1,7 @@
 package pl.edu.agh.student.asynctaskmap;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -34,5 +36,8 @@ public class Car {
                 .position(position)
                 .title(this.getName())
                 .snippet("Car: "+this.getName()));
+
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(position, 15.0f);
+        map.animateCamera(yourLocation);
     }
 }
